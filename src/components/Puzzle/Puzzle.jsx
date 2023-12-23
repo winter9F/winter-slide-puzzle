@@ -1,22 +1,23 @@
-import "./Puzzle.css"
-import { Tiles } from "./Tiles"
+import tile1 from "../../assets/PuzzlePieces/P1-1.jpg"
+import tile2 from "../../assets/PuzzlePieces/P1-2.jpg"
+import tile3 from "../../assets/PuzzlePieces/P1-3.jpg"
+import tile4 from "../../assets/PuzzlePieces/P1-4.jpg"
+import tile5 from "../../assets/PuzzlePieces/P1-5.jpg"
+import tile6 from "../../assets/PuzzlePieces/P1-6.jpg"
+import tile7 from "../../assets/PuzzlePieces/P1-7.jpg"
+import tile8 from "../../assets/PuzzlePieces/P1-8.jpg"
+import tile9 from "../../assets/PuzzlePieces/P1-9.jpg"
 
-export default function Puzzle() {
-    return (
 
-        <div className="row d-flex text-center">
-            <div className="card bg-dark d-inline">
-                <img className="m-2" src={Tiles[0]} alt="" />
-                <img className="m-2" src={Tiles[1]} alt="" />
-                <img className="m-2" src={Tiles[2]} alt="" />
-                <img className="m-2" src={Tiles[3]} alt="" />
-                <img className="m-2" src={Tiles[4]} alt="" />
-                <img className="m-2" src={Tiles[5]} alt="" />
-                <img className="m-2" src={Tiles[6]} alt="" />
-                <img className="m-2" src={Tiles[7]} alt="" />
-                <img className="m-2" src={Tiles[8]} alt="" />
-            </div>
-        </div>
+export const solution = [tile1, tile2, tile3, tile4, tile5, tile6, tile7, tile8, tile9]
+const tilesEdit = [tile1, tile2, tile3, tile4, tile5, tile6, tile7, tile8, tile9]
 
-    )
+
+export const puzzle = []
+
+
+while (tilesEdit.length) {
+    const indexNum = Math.floor(Math.random() * tilesEdit.length);
+    puzzle.push(tilesEdit.splice(indexNum, 1)[0]);
 }
+
