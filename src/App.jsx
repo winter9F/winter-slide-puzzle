@@ -11,6 +11,7 @@ function App() {
   const solution = [...puzzlePieces]
 
   let puzzle = [];
+  const [puzzleEdit, setPuzzle] = useState([...puzzle])
 
   while (tilesEdit.length) {
     const indexNum = Math.floor(Math.random() * tilesEdit.length);
@@ -22,6 +23,14 @@ function App() {
   const isSolved = (puzzle, solution) => {
     return puzzle.every((puzzleValue, index) => puzzleValue === solution[index])
   }
+
+  function handleTileClick(index) {
+    if (canMoveTile(index)) {
+      [puzzle[index], puzzle[emptyTileIndex]] = [puzzle[emptyTileIndex], puzzle[index]];
+      setPuzzle([...puzzle])
+    }
+  }
+
 
   const canMoveTile = (index) => {
     const emptyRowIndex = Math.floor(emptyTileIndex / 3);
@@ -36,14 +45,9 @@ function App() {
     return isAdjacent;
   }
 
-  const [puzzle1, setPuzzle] = useState()
 
-  function handleTileClick(index) {
-    if (canMoveTile(index)) {
-      [puzzle[index], puzzle[emptyTileIndex]] = [puzzle[emptyTileIndex], puzzle[index]];
-      setPuzzle([...puzzle])
-    }
-  }
+
+
 
   return (
 
@@ -53,21 +57,20 @@ function App() {
 
       <div className="row d-flex text-center">
         <div className="card bg-dark d-inline">
-          <button onClick={() => handleSwap()}><img id="0-0" className="m-2" src={puzzle[0]} alt="" /></button>
-          <img id="0-1" className="m-2" src={puzzle[1]} alt="" />
-          <img id="0-2" className="m-2" src={puzzle[2]} alt="" />
-          <img id="1-0" className="m-2" src={puzzle[3]} alt="" />
-          <img id="1-2" className="m-2" src={puzzle[4]} alt="" />
-          <img id="1-3" className="m-2" src={puzzle[5]} alt="" />
-          <img id="2-0" className="m-2" src={puzzle[6]} alt="" />
-          <img id="2-1" className="m-2" src={puzzle[7]} alt="" />
-          <img id="2-2" className="m-2" src={puzzle[8]} alt="" />
+          {puzzle.map((tile, index) =>
+            <button
+              key={index}
+              className="tile"
+              onClick={() => handleTileClick(index)}
+            ><img src={tile} alt="" /></button>
+          )}
         </div>
 
       </div>
-
     </section>
-
   )
 }
+
+
+
 export default App
