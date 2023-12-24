@@ -6,18 +6,10 @@ import tile5 from "../../assets/PuzzlePieces/P1-5.jpg"
 import tile6 from "../../assets/PuzzlePieces/P1-6.jpg"
 import tile7 from "../../assets/PuzzlePieces/P1-7.jpg"
 import tile8 from "../../assets/PuzzlePieces/P1-8.jpg"
-import tile9 from "../../assets/PuzzlePieces/P1-9.jpg"
+import tile9Blank from "../../assets/PuzzlePieces/P1-9-blank.jpg"
 
 
-export const solution = [tile1, tile2, tile3, tile4, tile5, tile6, tile7, tile8, tile9]
-const tilesEdit = [tile1, tile2, tile3, tile4, tile5, tile6, tile7, tile8, tile9]
+export const puzzlePieces = [tile1, tile2, tile3, tile4, tile5, tile6, tile7, tile8, tile9Blank]
 
 
-export const puzzle = []
-
-
-while (tilesEdit.length) {
-    const indexNum = Math.floor(Math.random() * tilesEdit.length);
-    puzzle.push(tilesEdit.splice(indexNum, 1)[0]);
-}
 
