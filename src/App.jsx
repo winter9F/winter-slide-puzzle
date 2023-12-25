@@ -11,14 +11,16 @@ function App() {
   const solution = [...puzzlePieces]
 
   let puzzle = [];
-  const [puzzleEdit, setPuzzle] = useState([...puzzle])
 
   while (tilesEdit.length) {
     const indexNum = Math.floor(Math.random() * tilesEdit.length);
     puzzle.push(tilesEdit.splice(indexNum, 1)[0]);
   }
 
-  const emptyTileIndex = puzzle.indexOf("tile9Blank");
+  const [newPuzzle, setPuzzle] = useState([...puzzle])
+
+  const emptyTileIndex = puzzle.indexOf("/src/assets/PuzzlePieces/P1-9-blank.jpg");
+
 
   const isSolved = (puzzle, solution) => {
     return puzzle.every((puzzleValue, index) => puzzleValue === solution[index])
@@ -26,8 +28,9 @@ function App() {
 
   function handleTileClick(index) {
     if (canMoveTile(index)) {
-      [puzzle[index], puzzle[emptyTileIndex]] = [puzzle[emptyTileIndex], puzzle[index]];
-      setPuzzle([...puzzle])
+      const newPuzzle = [...puzzle];
+      [newPuzzle[index], newPuzzle[emptyTileIndex]] = [newPuzzle[emptyTileIndex], newPuzzle[index]];
+      setPuzzle(newPuzzle)
     }
   }
 
@@ -42,6 +45,8 @@ function App() {
       (emptyRowIndex === clickedRowIndex && Math.abs(emptyColIndex - clickedColIndex) === 1) ||
       (emptyColIndex === clickedColIndex && Math.abs(emptyRowIndex - clickedRowIndex) === 1)
 
+    console.log(`Can move tile at index ${index} (${clickedRowIndex}, ${clickedColIndex}): ${isAdjacent}`);
+    console.log(`Empty tile at index ${emptyTileIndex} (${emptyRowIndex}, ${emptyColIndex})`);
     return isAdjacent;
   }
 
