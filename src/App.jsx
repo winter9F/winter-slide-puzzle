@@ -1,25 +1,17 @@
 import { useState } from 'react'
 import './App.css'
-import "./components/Puzzle/Puzzle"
-import { puzzlePieces } from './components/Puzzle/Puzzle'
+import "./components/Puzzle/puzzlePieces"
+import { puzzle, solution, emptyTileIndex } from './components/Puzzle/puzzle'
 import MoveTile from "./components/moveTile"
 
 function App() {
 
 
-  const tilesEdit = [...puzzlePieces]
-  const solution = [...puzzlePieces]
 
-  let puzzle = [];
-
-  while (tilesEdit.length) {
-    const indexNum = Math.floor(Math.random() * tilesEdit.length);
-    puzzle.push(tilesEdit.splice(indexNum, 1)[0]);
-  }
 
   const [newPuzzle, setPuzzle] = useState([...puzzle])
+  const [emptyTileIndex, setEmptyTileIndex] = useState(() => puzzle.indexOf("/src/assets/PuzzlePieces/P1-9-blank.jpg"));
 
-  const emptyTileIndex = puzzle.indexOf("/src/assets/PuzzlePieces/P1-9-blank.jpg");
 
 
   const isSolved = (puzzle, solution) => {
@@ -28,9 +20,11 @@ function App() {
 
   function handleTileClick(index) {
     if (canMoveTile(index)) {
-      const newPuzzle = [...puzzle];
-      [newPuzzle[index], newPuzzle[emptyTileIndex]] = [newPuzzle[emptyTileIndex], newPuzzle[index]];
-      setPuzzle(newPuzzle)
+      const updatedPuzzle = [...newPuzzle];
+      [updatedPuzzle[index], updatedPuzzle[emptyTileIndex]] = [updatedPuzzle[emptyTileIndex], updatedPuzzle[index]];
+      let newEmptyTileIndex = updatedPuzzle.indexOf("/src/assets/PuzzlePieces/P1-9-blank.jpg");
+      setPuzzle(updatedPuzzle);
+      setEmptyTileIndex(newEmptyTileIndex);
     }
   }
 
@@ -45,13 +39,11 @@ function App() {
       (emptyRowIndex === clickedRowIndex && Math.abs(emptyColIndex - clickedColIndex) === 1) ||
       (emptyColIndex === clickedColIndex && Math.abs(emptyRowIndex - clickedRowIndex) === 1)
 
-    console.log(`Can move tile at index ${index} (${clickedRowIndex}, ${clickedColIndex}): ${isAdjacent}`);
-    console.log(`Empty tile at index ${emptyTileIndex} (${emptyRowIndex}, ${emptyColIndex})`);
+
     return isAdjacent;
   }
 
-
-
+  console.log(newPuzzle)
 
 
   return (
@@ -60,9 +52,9 @@ function App() {
     <section className='container'>
       <h1>Puzzle</h1>
 
-      <div className="row d-flex text-center">
-        <div className="card bg-dark d-inline">
-          {puzzle.map((tile, index) =>
+      <div className="puzzleBox">
+        <div className="">
+          {newPuzzle.map((tile, index) =>
             <button
               key={index}
               className="tile"
