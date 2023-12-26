@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import "./components/Puzzle/puzzlePieces"
 import { puzzle, solution, emptyTileIndex } from './components/Puzzle/puzzle'
@@ -11,12 +11,17 @@ function App() {
 
   const [newPuzzle, setPuzzle] = useState([...puzzle])
   const [emptyTileIndex, setEmptyTileIndex] = useState(() => puzzle.indexOf("/src/assets/PuzzlePieces/P1-9-blank.jpg"));
+  const [isSolvedTrue, setIsSolved] = useState(false);
 
+  useEffect(() => {
+    const isSolved = (newPuzzle, solution) => {
+      return newPuzzle.every((puzzleValue, index) => puzzleValue === solution[index])
+    };
+    if (isSolved(newPuzzle, solution)) {
+      setIsSolved(true);
+    }
+  }, [newPuzzle])
 
-
-  const isSolved = (puzzle, solution) => {
-    return puzzle.every((puzzleValue, index) => puzzleValue === solution[index])
-  }
 
   function handleTileClick(index) {
     if (canMoveTile(index)) {
@@ -25,6 +30,8 @@ function App() {
       let newEmptyTileIndex = updatedPuzzle.indexOf("/src/assets/PuzzlePieces/P1-9-blank.jpg");
       setPuzzle(updatedPuzzle);
       setEmptyTileIndex(newEmptyTileIndex);
+
+
     }
   }
 
@@ -43,9 +50,6 @@ function App() {
     return isAdjacent;
   }
 
-  console.log(newPuzzle)
-
-
   return (
 
 
@@ -54,17 +58,25 @@ function App() {
 
       <div className="puzzleBox">
         <div className="">
-          {newPuzzle.map((tile, index) =>
+
+        </div>
+        {isSolvedTrue ? (
+          <button>YOU WIN</button>
+        ) : (
+          newPuzzle.map((tile, index) =>
             <button
               key={index}
               className="tile"
               onClick={() => handleTileClick(index)}
             ><img src={tile} alt="" /></button>
-          )}
-        </div>
+          )
+        )}
 
       </div>
-    </section>
+
+
+
+    </section >
   )
 }
 
