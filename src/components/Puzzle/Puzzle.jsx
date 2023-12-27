@@ -54,8 +54,5 @@ export const CreatePuzzle = (puzzleKey, { setPuzzle, setSolution, setEmptyTileIn
 
 
 
-    else {
-        return { puzzle: [], solution: [], emptyTileIndex: -1 }
-    }
 }
 
