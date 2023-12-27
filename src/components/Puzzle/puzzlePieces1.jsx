@@ -9,7 +9,7 @@ import tile8 from "../../assets/PuzzlePieces1/P1-8.jpg"
 import tile9Blank from "../../assets/PuzzlePieces1/P1-9-blank.jpg"
 
 
-export const puzzlePieces = [tile1, tile2, tile3, tile4, tile5, tile6, tile7, tile8, tile9Blank]
+export const puzzlePieces1 = [tile1, tile2, tile3, tile4, tile5, tile6, tile7, tile8, tile9Blank]
 
 
 

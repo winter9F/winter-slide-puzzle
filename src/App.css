@@ -61,7 +61,14 @@ body {
 
 }
 
+
+img {
+    height: 200px;
+}
+
+
 .tile-button {
+
 
     border: 0px;
     outline: none;
