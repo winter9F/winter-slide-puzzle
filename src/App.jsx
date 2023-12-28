@@ -12,7 +12,6 @@ import P3Complete from "./assets/PuzzlePieces3/P3-complete.jpg"
 
 
 function App() {
-  console.log(P1Complete)
   const [newPuzzle, setPuzzle] = useState([])
   const [solution, setSolution] = useState([])
   const [emptyTileIndex, setEmptyTileIndex] = useState((-1));
@@ -35,43 +34,55 @@ function App() {
 
     <section className='container'>
       <div className='content'>
-        <div>
-          <h1>Puzzle</h1>
+        <div className=''>
+          <h1 className='title'>Winter's Puzzles</h1>
         </div>
-        <div className="puzzleBox">
-          {isSolvedTrue ? (
-            <button>YOU WIN</button>
-          ) : isPuzzleVisible && newPuzzle && (
-            newPuzzle.map((tile, index) =>
-              <div>
-                <button
-                  key={index}
-                  className="tile tile-button"
-                  onClick={() => handleTileClick({ index, newPuzzle, emptyTileIndex, setPuzzle, setEmptyTileIndex, canMoveTile })}
-                ><img src={tile} alt="" /></button>
+        {!isPuzzleVisible ? (
+          <>
+            <div className='puzzleBox'>
+              <div className='pickText'>
+                <h2>Pick a Puzzle</h2>
               </div>
-            )
-          )}
-        </div>
-        <menu>
-
-          {!isPuzzleVisible ? (
-            <>
-              <menu className='homeBox'>
+              <menu className='puzzleSelect'>
                 <button className='imgHome' onClick={() => { CreatePuzzle("puzzle1", { setPuzzle, setSolution, setEmptyTileIndex }); setIsPuzzleVisible(!isPuzzleVisible) }}><img src={P1Complete} alt="" />
                 </button>
                 <button className='imgHome' onClick={() => { CreatePuzzle("puzzle2", { setPuzzle, setSolution, setEmptyTileIndex }); setIsPuzzleVisible(!isPuzzleVisible) }}><img src={P2Complete} alt="" />
                 </button>
                 <button className='imgHome' onClick={() => { CreatePuzzle("puzzle3", { setPuzzle, setSolution, setEmptyTileIndex }); setIsPuzzleVisible(!isPuzzleVisible) }}><img src={P3Complete} alt="" /></button>
               </menu>
-            </>
-          ) : (
-            <>
-              <button className='nav' onClick={() => handleShuffle({ newPuzzle, setPuzzle, setEmptyTileIndex })}>Shuffle</button>
+            </div>
+          </>
+
+
+        ) : null}
+
+
+        {isSolvedTrue && isPuzzleVisible ? (
+          <div className='puzzleBox'>
+            <div className='successBox'>
+              <h1 className='successMessage'>WELL DONE!</h1>
               <button className='nav' onClick={() => setIsPuzzleVisible(!isPuzzleVisible)}>Pick new Puzzle</button>
-            </>
-          )}
-        </menu>
+            </div>
+          </div>
+        ) : isPuzzleVisible && newPuzzle && (
+          <div className='puzzleBox'>
+            {newPuzzle.map((tile, index) =>
+              <button
+                key={index}
+                className="tile tile-button"
+                onClick={() => handleTileClick({ index, newPuzzle, emptyTileIndex, setPuzzle, setEmptyTileIndex, canMoveTile })}
+              ><img src={tile} alt="" /></button>
+            )}
+          </div>
+
+        )
+        }
+        {isPuzzleVisible && newPuzzle ? (
+          < menu >
+            <button className='nav' onClick={() => handleShuffle({ newPuzzle, setPuzzle, setEmptyTileIndex })}>Shuffle</button>
+            <button className='nav' onClick={() => setIsPuzzleVisible(!isPuzzleVisible)}>Pick new Puzzle</button>
+          </menu>
+        ) : null}
       </div>
 
 
