@@ -45,6 +45,29 @@ body {
 
 }
 
+.homeBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    justify-content: center;
+    gap: 0;
+    height: 670px;
+    width: 670px;
+    border: 1px solid rgba(255, 255, 255, 0.39);
+    border-radius: 10px;
+    padding: 20px;
+    background-color: black;
+
+}
+
+.imgHome {
+    background: none;
+    border: none;
+    height: 200px;
+    cursor: pointer;
+}
+
 .nav {
     border: 0;
     box-shadow: 0px 4px 8px;

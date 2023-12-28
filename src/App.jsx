@@ -4,11 +4,15 @@ import { CreatePuzzle } from './components/Puzzle/puzzle'
 import { handleTileClick } from "./utils/TileClick"
 import { handleShuffle } from "./utils/Shuffle"
 import { canMoveTile } from "./utils/MoveTile";
+import P1Complete from "./assets/PuzzlePieces1/P1-complete.jpg"
+import P2Complete from "./assets/PuzzlePieces2/P2-complete.jpg"
+import P3Complete from "./assets/PuzzlePieces3/P3-complete.jpg"
+
 
 
 
 function App() {
-
+  console.log(P1Complete)
   const [newPuzzle, setPuzzle] = useState([])
   const [solution, setSolution] = useState([])
   const [emptyTileIndex, setEmptyTileIndex] = useState((-1));
@@ -53,17 +57,18 @@ function App() {
 
           {!isPuzzleVisible ? (
             <>
-              <button className='nav' onClick={() => { CreatePuzzle("puzzle1", { setPuzzle, setSolution, setEmptyTileIndex }); setIsPuzzleVisible(!isPuzzleVisible) }}> Puzzle 1
-              </button>
-              <button className='nav' onClick={() => { CreatePuzzle("puzzle2", { setPuzzle, setSolution, setEmptyTileIndex }); setIsPuzzleVisible(!isPuzzleVisible) }}> Puzzle 2
-              </button>
-              <button className='nav' onClick={() => { CreatePuzzle("puzzle3", { setPuzzle, setSolution, setEmptyTileIndex }); setIsPuzzleVisible(!isPuzzleVisible) }}> Puzzle 3
-              </button>
+              <menu className='homeBox'>
+                <button className='imgHome' onClick={() => { CreatePuzzle("puzzle1", { setPuzzle, setSolution, setEmptyTileIndex }); setIsPuzzleVisible(!isPuzzleVisible) }}><img src={P1Complete} alt="" />
+                </button>
+                <button className='imgHome' onClick={() => { CreatePuzzle("puzzle2", { setPuzzle, setSolution, setEmptyTileIndex }); setIsPuzzleVisible(!isPuzzleVisible) }}><img src={P2Complete} alt="" />
+                </button>
+                <button className='imgHome' onClick={() => { CreatePuzzle("puzzle3", { setPuzzle, setSolution, setEmptyTileIndex }); setIsPuzzleVisible(!isPuzzleVisible) }}><img src={P3Complete} alt="" /></button>
+              </menu>
             </>
           ) : (
             <>
               <button className='nav' onClick={() => handleShuffle({ newPuzzle, setPuzzle, setEmptyTileIndex })}>Shuffle</button>
-              <button className='nav'>Pick new Puzzle</button>
+              <button className='nav' onClick={() => setIsPuzzleVisible(!isPuzzleVisible)}>Pick new Puzzle</button>
             </>
           )}
         </menu>
