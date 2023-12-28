@@ -9,16 +9,14 @@ body {
     align-items: center;
     justify-content: center;
     flex-grow: 1;
-
-
     background-color: rgb(0, 0, 0);
 }
 
 .title {
-    color: transparent;
     font-family: 'Kanit', sans-serif;
     font-weight: 900;
     font-size: 4rem;
+    color: transparent;
     background: linear-gradient(5deg, #3103ff, #ff0062, #ff03c0, #3103ff);
     background-clip: text;
     margin: 10px;
@@ -26,10 +24,10 @@ body {
 }
 
 .successMessage {
-    color: transparent;
     font-family: 'Kanit', sans-serif;
     font-weight: 900;
     font-size: 4rem;
+    color: transparent;
     background: linear-gradient(15deg, #ffffff, #bd9a01, #cfbb5f, #776101);
     background-clip: text;
     margin: 10px;
@@ -59,7 +57,8 @@ button {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    width: 850px;
+    width: 80%;
+    max-width: 850px;
     margin: 30px;
     border: 2px solid transparent;
     border-image: linear-gradient(30deg, #ff0062, #ff03c0, #3103ff) 1;
@@ -83,7 +82,7 @@ button {
     align-items: center;
     justify-content: center;
     height: 200px;
-    width: 100vh;
+    width: 95%;
     border-radius: 10px;
     padding: 20px;
     background-color: white
@@ -95,8 +94,8 @@ button {
     justify-content: center;
     align-items: center;
     justify-content: center;
-    height: 60vh;
-    width: 100vh;
+    height: 100%;
+    width: 100%;
     border-radius: 10px;
     padding: 20px;
 }
@@ -105,35 +104,35 @@ button {
     display: inline-flex;
     flex-wrap: wrap;
     flex-direction: row;
-
     justify-content: center;
-    gap: 0;
     height: 100vh;
-    width: 670px;
-
-    border: 1px solid rgba(255, 255, 255, 0.39);
-    border-radius: 10px;
+    width: 80%;
     padding: 20px;
     margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.39);
+    border-radius: 10px;
     background-color: black;
 
 
 
 }
 
+img {
+    width: 100%;
+}
+
 .imgHome {
-    background: none;
     border: none;
-    height: 200px;
+    background: none;
     cursor: pointer;
 }
 
 .nav {
-    border: 0;
-    box-shadow: 0px 4px 8px;
-    border-radius: 5px;
     padding: 10px;
     margin: 5px;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px;
     background-color: rgb(245, 0, 102);
     transition: background-color .2s;
 
@@ -145,26 +144,59 @@ button {
 }
 
 
-img {
-    height: 200px;
-}
-
-
 .tile-button {
-
-
-    border: 0px;
-    outline: none;
+    width: 30%;
     margin: 2px;
     padding: 5px;
+    border: 0px;
     cursor: pointer;
-    appearance: none;
     background-color: transparent;
 }
 
 
-@media (max-width: 700px) {
-    h1 {
-        color: blue;
+
+
+@media (max-width: 950px) {
+
+    .puzzleBox {
+        height: 60%;
+
+    }
+}
+
+
+
+
+@media (max-width: 750px) {
+
+    .title {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .content {
+        height: 100vh;
+        width: 450px;
+    }
+
+    .successMessage {
+        font-size: 3rem;
+    }
+
+    .puzzleSelect {
+        height: 30%;
+    }
+
+    .puzzleBox {
+        height: 40%;
+
+    }
+
+    .imgHome {
+        width: 50%;
+
     }
 }

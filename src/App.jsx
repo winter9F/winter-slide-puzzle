@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import { CreatePuzzle } from './components/Puzzle/puzzle'
+import { CreatePuzzle } from './utils/Puzzle/puzzle'
 import { handleTileClick } from "./utils/TileClick"
 import { handleShuffle } from "./utils/Shuffle"
 import { canMoveTile } from "./utils/MoveTile";
