@@ -45,11 +45,11 @@ To get started with Winter Slide Puzzle, follow these steps:
 
   1. Sliding Puzzle Gameplay
 
-    -  Solve puzzles as you move pieces one at a time. Uncover the hidden image and showcase your problem-solving skills.
+  - Solve puzzles as you move pieces one at a time. Uncover the hidden image and showcase your problem-solving skills.
 
   2. Variety of Puzzles
 
-    - Enjoy the diversity of three distinct puzzles, each with its own charm and complexity.
+  - Enjoy the diversity of three distinct puzzles, each with its own charm and complexity.
 
 
 
