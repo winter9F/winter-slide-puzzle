@@ -6,7 +6,6 @@ export const handleShuffle = ({ newPuzzle, setPuzzle, setEmptyTileIndex }) => {
         const indexNum = Math.floor(Math.random() * currentPuzzle.length);
         updatedPuzzle.push(currentPuzzle.splice(indexNum, 1)[0]);
     };
-    console.log(updatedPuzzle)
     let newEmptyTileIndex = -1
     if (updatedPuzzle.includes("/src/assets/PuzzlePieces1/P1-9-blank.jpg")) {
         newEmptyTileIndex = updatedPuzzle.indexOf("/src/assets/PuzzlePieces1/P1-9-blank.jpg")
