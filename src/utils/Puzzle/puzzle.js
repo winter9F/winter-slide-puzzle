@@ -2,6 +2,10 @@ import { puzzlePieces1 } from "./puzzlePieces1";
 import { puzzlePieces2 } from "./puzzlePieces2";
 import { puzzlePieces3 } from "./puzzlePieces3";
 
+export const blankTile1 = puzzlePieces1[8]
+export const blankTile2 = puzzlePieces2[8]
+export const blankTile3 = puzzlePieces3[8]
+
 
 
 
@@ -16,8 +20,8 @@ export const CreatePuzzle = (puzzleKey, { setPuzzle, setSolution, setEmptyTileIn
             const indexNum = Math.floor(Math.random() * tilesEdit.length);
             puzzle.push(tilesEdit.splice(indexNum, 1)[0]);
         };
-        console.log(...puzzle)
-        let emptyTileIndex = puzzle.indexOf("/winter-slide-puzzle/src/assets/PuzzlePieces1/P1-9-blank.jpg");
+
+        let emptyTileIndex = puzzle.indexOf(blankTile1);
         setPuzzle(puzzle)
         setSolution(solution)
         setEmptyTileIndex(emptyTileIndex)
@@ -34,7 +38,7 @@ export const CreatePuzzle = (puzzleKey, { setPuzzle, setSolution, setEmptyTileIn
             puzzle.push(tilesEdit.splice(indexNum, 1)[0]);
         };
 
-        let emptyTileIndex = puzzle.indexOf("/winter-slide-puzzle/src/assets/PuzzlePieces2/P2-9-blank.jpg");
+        let emptyTileIndex = puzzle.indexOf(blankTile2);
         setPuzzle(puzzle)
         setSolution(solution)
         setEmptyTileIndex(emptyTileIndex)
@@ -50,7 +54,7 @@ export const CreatePuzzle = (puzzleKey, { setPuzzle, setSolution, setEmptyTileIn
             puzzle.push(tilesEdit.splice(indexNum, 1)[0]);
         };
 
-        let emptyTileIndex = puzzle.indexOf("/winter-slide-puzzle/src/assets/PuzzlePieces3/P3-9-blank.jpg");
+        let emptyTileIndex = puzzle.indexOf(blankTile3);
         setPuzzle(puzzle)
         setSolution(solution)
         setEmptyTileIndex(emptyTileIndex)

@@ -1,3 +1,5 @@
+import { blankTile1, blankTile2, blankTile3 } from "./Puzzle/puzzle";
+
 export const handleTileClick = ({ index, newPuzzle, emptyTileIndex, setPuzzle, setEmptyTileIndex, canMoveTile }) => {
     if (canMoveTile({ index, emptyTileIndex })) {
         const updatedPuzzle = [...newPuzzle];
@@ -6,12 +8,12 @@ export const handleTileClick = ({ index, newPuzzle, emptyTileIndex, setPuzzle, s
 
         let newEmptyTileIndex = -1
 
-        if (updatedPuzzle.includes("/winter-slide-puzzle/src/assets/PuzzlePieces1/P1-9-blank.jpg")) {
-            newEmptyTileIndex = updatedPuzzle.indexOf("/winter-slide-puzzle/src/assets/PuzzlePieces1/P1-9-blank.jpg")
-        } else if (updatedPuzzle.includes("/winter-slide-puzzle/src/assets/PuzzlePieces2/P2-9-blank.jpg")) {
-            newEmptyTileIndex = updatedPuzzle.indexOf("/winter-slide-puzzle/src/assets/PuzzlePieces2/P2-9-blank.jpg")
+        if (updatedPuzzle.includes(blankTile1)) {
+            newEmptyTileIndex = updatedPuzzle.indexOf(blankTile1)
+        } else if (updatedPuzzle.includes(blankTile2)) {
+            newEmptyTileIndex = updatedPuzzle.indexOf(blankTile2)
         } else {
-            newEmptyTileIndex = updatedPuzzle.indexOf("/winter-slide-puzzle/src/assets/PuzzlePieces3/P3-9-blank.jpg")
+            newEmptyTileIndex = updatedPuzzle.indexOf(blankTile3)
         }
 
         setPuzzle(updatedPuzzle);
