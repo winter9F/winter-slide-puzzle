@@ -2,10 +2,9 @@ import { puzzlePieces1 } from "./puzzlePieces1";
 import { puzzlePieces2 } from "./puzzlePieces2";
 import { puzzlePieces3 } from "./puzzlePieces3";
 
-export const blankTile1 = puzzlePieces1[8]
-export const blankTile2 = puzzlePieces2[8]
-export const blankTile3 = puzzlePieces3[8]
-
+export const blankTile1 = puzzlePieces1[8];
+export const blankTile2 = puzzlePieces2[8];
+export const blankTile3 = puzzlePieces3[8];
 
 
 

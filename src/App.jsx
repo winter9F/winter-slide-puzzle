@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import { CreatePuzzle } from './utils/Puzzle/puzzle'
-import { handleTileClick } from "./utils/tileClick"
-import { handleShuffle } from "./utils/shuffle"
-import { canMoveTile } from "./utils/moveTile";
+import { handleTileClick } from "./utils/TileClick"
+import { handleShuffle } from "./utils/Shuffle"
+import { canMoveTile } from "./utils/MoveTile";
 import P1Complete from "./assets/PuzzlePieces1/P1-complete.jpg"
 import P2Complete from "./assets/PuzzlePieces2/P2-complete.jpg"
 import P3Complete from "./assets/PuzzlePieces3/P3-complete.jpg"
