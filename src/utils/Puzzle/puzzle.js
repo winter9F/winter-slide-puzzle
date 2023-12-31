@@ -16,7 +16,7 @@ export const CreatePuzzle = (puzzleKey, { setPuzzle, setSolution, setEmptyTileIn
             const indexNum = Math.floor(Math.random() * tilesEdit.length);
             puzzle.push(tilesEdit.splice(indexNum, 1)[0]);
         };
-
+        console.log(...puzzle)
         let emptyTileIndex = puzzle.indexOf("/winter-slide-puzzle/src/assets/PuzzlePieces1/P1-9-blank.jpg");
         setPuzzle(puzzle)
         setSolution(solution)

@@ -61,7 +61,7 @@ function App() {
           <div className='puzzleBox'>
             <div className='successBox'>
               <h1 className='successMessage'>WELL DONE!</h1>
-              <button className='nav' onClick={() => setIsPuzzleVisible(!isPuzzleVisible)}>Pick new Puzzle</button>
+              <button className='nav' onClick={() => { setIsPuzzleVisible(!isPuzzleVisible); setIsSolved(false) }}>Pick new Puzzle</button>
             </div>
           </div>
         ) : isPuzzleVisible && newPuzzle && (
@@ -77,7 +77,7 @@ function App() {
 
         )
         }
-        {isPuzzleVisible && newPuzzle ? (
+        {!isSolvedTrue && isPuzzleVisible && newPuzzle ? (
           < menu >
             <button className='nav' onClick={() => handleShuffle({ newPuzzle, setPuzzle, setEmptyTileIndex })}>Shuffle</button>
             <button className='nav' onClick={() => setIsPuzzleVisible(!isPuzzleVisible)}>Pick new Puzzle</button>
